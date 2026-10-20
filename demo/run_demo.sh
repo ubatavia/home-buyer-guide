@@ -19,4 +19,5 @@ pause 1
 
 echo; echo "== 4. Shareable report =="
 python3 scripts/build_report.py examples/calgary demo/report.html
+cp demo/report.html docs/index.html   # served by GitHub Pages
 command -v open >/dev/null && [ -z "$DEMO_FAST" ] && open demo/report.html || true

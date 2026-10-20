@@ -42,6 +42,8 @@ flowchart LR
 | `examples/calgary/` | Worked example: Glacier Ridge, Calgary, from public sources |
 | `demo/` | One-command demo and a 90-second recording script |
 
+**Live demo report:** https://ubatavia.github.io/home-buyer-guide/
+
 ## Quick demo (30 seconds, no setup)
 
 ```bash
