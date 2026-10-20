@@ -1,0 +1,50 @@
+{
+  "_note": "Rules snapshot for Canada / Alberta. Compiled from secondary sources on the date below and NOT from primary government pages. Re-verify every value before relying on it (see sources).",
+  "last_checked": "2026-10-19",
+  "stress_test": {
+    "buffer_pct": 2.0,
+    "floor_pct": 5.25,
+    "rule": "qualifying rate = greater of (contract rate + buffer) or floor",
+    "sources": [
+      "https://www.osfi-bsif.gc.ca/en/supervision/financial-institutions/banks/minimum-qualifying-rate-uninsured-mortgages"
+    ]
+  },
+  "default_insurance": {
+    "premium_pct_by_ltv": [
+      {"max_ltv_pct": 80, "premium_pct": 2.40},
+      {"max_ltv_pct": 85, "premium_pct": 2.80},
+      {"max_ltv_pct": 90, "premium_pct": 3.10},
+      {"max_ltv_pct": 95, "premium_pct": 4.00}
+    ],
+    "amortization_30yr_surcharge_pct": 0.20,
+    "surcharge_applies_to": "first-time buyers or newly built homes choosing 30-year amortization",
+    "min_down_payment": {"first_tier_cap": 500000, "first_tier_pct": 5, "remainder_pct": 10},
+    "insured_price_cap": 1500000,
+    "insured_price_cap_status": "conflicting sources (CMHC page says 1,000,000; later reports say 1,500,000). Verify.",
+    "alberta_tax_on_premium": "none (verify)",
+    "sources": [
+      "https://cmhc-schl.gc.ca/finance-and-investing/mortgage-loan-insurance/the-resource/mortgage-loan-insurance-and-premiums",
+      "https://www.ratehub.ca/cmhc-insurance-alberta"
+    ]
+  },
+  "alberta_land_titles": {
+    "base_fee": 50,
+    "per_5000_of_value": 5,
+    "effective": "2024-10-20",
+    "applies_to": ["title transfer (purchase price)", "mortgage registration (loan amount)"],
+    "sources": [
+      "https://www.bennettjones.com/Insights/Blogs/2024/10/Open-Your-Wallets-Wider-Increases-to-Alberta-Land-Transfer-and-Mortgage-Registration-Fees-Coming"
+    ]
+  },
+  "programs": {
+    "hbp_limit_per_person": 60000,
+    "fhsa_annual_limit": 8000,
+    "fhsa_lifetime_limit": 40000,
+    "first_time_gst_rebate": "up to 100% of GST (max 50,000) on new homes up to 1,000,000, phasing out to 1,500,000. Became law 2026-03-12. Confirm eligibility and agreement dates with the builder and lawyer.",
+    "alberta_new_home_warranty": "mandatory 1-2-5-10 coverage for homes with permits after 2014-02-01",
+    "sources": [
+      "https://www.mpamag.com/ca/mortgage-industry/industry-trends/new-federal-gst-rebate-gives-first-time-buyers-rare-break-on-new-homes/568870",
+      "https://ifinancecanada.com/fhsa-2026-update-and-faq-contribution-limits-rules-and-what-first-time-buyers-need-to-know/"
+    ]
+  }
+}

@@ -36,18 +36,27 @@ flowchart LR
 | `.claude/agents/decision-scorer.md` | Scores options, flags stale or conflicting data |
 | `.claude/agents/financial-analyst.md` | Affordability and stress-test math, inputs always shown |
 | `docs/framework.md` | Schema, scoring method, programs-and-rules log |
-| `scripts/affordability.py` | Standalone payment and stress-test calculator |
-| `examples/` | Fictional sample outputs showing what the agents produce |
+| `scripts/affordability.py` | Canadian mortgage calculator: semi-annual compounding, default insurance, stress test, Alberta title fees |
+| `data/rules-ca-ab.json` | Dated, sourced rules snapshot the calculator reads (re-verify before relying on it) |
+| `scripts/build_report.py` | Turns research files into a shareable HTML comparison report |
+| `examples/calgary/` | Worked example: Glacier Ridge, Calgary, from public sources |
+| `demo/` | One-command demo and a 90-second recording script |
 
 ## Quick demo (30 seconds, no setup)
 
 ```bash
-python3 scripts/affordability.py --price 750000 --down 100000 \
-  --rate 4.5 --years 25 --stress-rate 6.5 --monthly-income 15000
-python3 -m unittest discover -s tests
+./demo/run_demo.sh          # research file, affordability math, tests, HTML report
+open demo/report.html       # macOS; the script opens it for you
 ```
 
-Rates are always inputs; the tool never assumes one. See `examples/` for the kind of research files the agents write.
+It runs a real Calgary example (Glacier Ridge, two builders) built from public sources. The household in the scenario is fictional. Every price carries a source and date, and anything unverified is marked `low` confidence or `unknown`. See `demo/DEMO-SCRIPT.md` for a recording script.
+
+Calculator on its own:
+
+```bash
+python3 scripts/affordability.py --price 665000 --down 66500 --rate 4.0 --years 25 \
+  --insured --first-time --stress-auto --monthly-income 12500
+```
 
 ## Use it for your own search
 
@@ -57,15 +66,16 @@ Rates are always inputs; the tool never assumes one. See `examples/` for the kin
 
 ## Limitations
 
-- The calculator uses monthly compounding. Canadian fixed mortgages typically compound semi-annually, so results differ slightly.
-- It excludes mortgage default insurance, property tax, utilities and closing costs.
+- The rules file was compiled from secondary sources (news, lenders, law firms), not primary government pages. Several values are flagged for verification, such as the insured-mortgage price cap.
+- The calculator excludes property tax, utilities, legal fees, GST rebates and closing adjustments. It is a screening tool, not a lender's calculation.
+- Builder prices in the Calgary example are "starting from" marketing figures. No show-home visit or quote backs them.
 - Agent output depends on public web sources; check `data_confidence` and sources before relying on a number.
 
 ## Roadmap
 
-- Semi-annual compounding and default-insurance premium options
-- Closing-cost estimator per jurisdiction
-- Side-by-side comparison report as a shareable page
+- Primary-source rules verification step in the financial-analyst agent
+- Closing-cost estimator, including GST rebate handling
+- Other provinces' rules files alongside `data/rules-ca-ab.json`
 - Intake agent for photos, PDFs and voice notes from show-home visits
 
 ## Contributing
