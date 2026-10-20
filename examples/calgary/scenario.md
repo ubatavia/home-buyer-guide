@@ -1,36 +1,36 @@
 # Affordability scenario (illustrative)
 
-**This household is fictional.** The figures below are assumptions chosen for the demo.
+**The household is fictional.** Income, down payment and contract rate are assumptions for the demo. The prices are builders' Glacier Ridge starting prices (not quotes), with GST added to Jayman's so the comparison is like for like.
 
 | Input | Value | Basis |
 |---|---|---|
-| Purchase price | $665,000 | Jayman "from the $660,000s" Glacier Ridge laned home, e.g. the Brooklyn 20 (1,444 sq ft). Assumption within the band |
-| Down payment | $66,500 (10%) | Assumed. Minimum for this price is $41,500 |
+| Purchase price | $725,000 | Cedarglen Windsor, starting at $725,000 in Glacier Ridge including lot and GST (2,238 sq ft) |
+| Down payment | $72,500 (10%) | Assumed. Minimum for this price is $53,750 |
 | Contract rate | 4.0% | Assumption. Sources put 5-year fixed near 4% in spring 2026; get a live quote |
 | Amortization | 25 years | Assumed |
 | Gross household income | $150,000/yr ($12,500/mo) | Assumed |
+| Residents' Association fee | $498.02/yr | Glacier Ridge Residents' Association, 2026, single-family, GST included; mandatory, registered on title |
 
 Run it:
 
 ```bash
-python3 scripts/affordability.py --price 665000 --down 66500 --rate 4.0 --years 25 \
+python3 scripts/affordability.py --price 725000 --down 72500 --rate 4.0 --years 25 \
   --insured --first-time --stress-auto --monthly-income 12500 --annual-fees 498.02
 ```
 
-The `--annual-fees` figure is the 2026 Glacier Ridge Residents' Association fee for a single-family home ($498.02 per year including GST, about $41.50 a month). It is mandatory and registered on title.
+## Same-size plans compared
 
-Result at the time of writing: mortgage payment about $3,246/month, or about $3,948/month at the 6.00% qualifying rate (the greater of contract rate + 2% or 5.25%), which is 31.6% of gross monthly income before property tax and utilities. A lender will apply its own debt-service limits, so this is a screening number only.
+All at 10% down, 25 years, 4.0%, $150K income, qualifying rate 6.00% (greater of contract rate + 2% or 5.25%). Jayman prices include 5% GST.
 
-**Not included:** property tax, utilities, legal fees, and the First-Time Home Buyers' GST rebate. Jayman's price already states it includes GST, so check with the builder how a rebate would be handled.
+| Option | Price | $ per sq ft | Mortgage incl. insurance | Monthly | At qualifying rate | Stressed payment / income |
+|---|---|---|---|---|---|---|
+| Jayman Brooklyn 20 (1,450 sq ft) | $546,000 | $377 | $506,633 | $2,665 | $3,241 | 25.9% |
+| **Cedarglen Windsor (2,238 sq ft)** | **$725,000** | **$324** | **$672,728** | **$3,539** | **$4,304** | **34.4%** |
+| **Jayman Karma 24 (2,261 sq ft)** | **$787,500** | **$348** | **$730,721** | **$3,844** | **$4,675** | **37.4%** |
+| Jayman Holly 24 (2,436 sq ft) | $808,500 | $332 | $750,207 | $3,946 | $4,800 | 38.4% |
 
-## Other options in the same community
-
-The report compares three price points at 10% down, 25 years, 4.0% and the same income:
-
-| Option | Assumed price | Mortgage incl. insurance | Monthly | At qualifying rate (6.00%) | Stressed payment / income |
-|---|---|---|---|---|---|
-| Paired, "low $500Ks" (Cedarglen band) | $520,000 | about $482,500 | about $2,538 | about $3,087 | 24.7% |
-| Laned, "from $660Ks" (Jayman Brooklyn 20) | $665,000 | about $617,100 | about $3,246 | about $3,948 | 31.6% |
-| Front drive, "low $700Ks" (Cedarglen, e.g. Carbon) | $725,000 | about $672,700 | about $3,539 | about $4,304 | 34.4% |
+The Windsor and Karma are the closest pair. The Windsor works out to roughly $305 a month less, before the association fee ($41.50 a month), property tax and utilities. A lender applies its own debt-service limits, so these are screening numbers only.
 
 Regenerate with `python3 scripts/build_report.py examples/calgary demo/report.html`.
+
+**Not included:** property tax, utilities, legal fees, and the First-Time Home Buyers' GST rebate. If you qualify, the rebate can change Jayman's effective price relative to Cedarglen's GST-included price. Confirm eligibility with the builder and your lawyer.

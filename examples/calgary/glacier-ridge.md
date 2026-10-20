@@ -4,8 +4,8 @@ name: "Glacier Ridge"
 slug: glacier-ridge
 last_updated: 2026-10-19
 price_starting: 520000
-price_range: [520000, 825000]
-sqft_range_available: [1438, 2525]
+price_range: [520000, 808500]
+sqft_range_available: [1450, 2794]
 builders_present: ["Jayman BUILT", "Cedarglen Homes", "Trico Homes", "Morrison Homes"]
 schools: ["Glacier Ridge Middle (requested, 6-9, 885 capacity)", "Glacier Ridge High School (requested, planning stage)", "Nearby: Sage Hill and Nolan Hill area schools"]
 commute_minutes: 25
@@ -15,7 +15,7 @@ future_development_notes: "Residents' Association 'Village' opened April 2026 (f
 data_confidence: medium
 sources:
   - {field: "price_starting", url: "https://www.cedarglenhomes.com/find-your-home/communities/glacier-ridge", date: "2026-10-19"}
-  - {field: "price_range", url: "https://jayman.com/find-your-home/communities/glacier-ridge/", date: "2026-10-19"}
+  - {field: "price_range", url: "https://www.jayman.com/calgary/all-homes/home-models/holly-24-m/community/glacier-ridge/", date: "2026-10-19"}
   - {field: "sqft_range_available", url: "https://www.cedarglenhomes.com/model/carbon/", date: "2026-10-19"}
   - {field: "commute_minutes", url: "https://www.cedarglenhomes.com/blog/glacier-ridge-calgary-northwest-community/", date: "2026-10-19"}
   - {field: "schools", url: "https://www.cbe.ab.ca/news/cbe-board-of-trustees-approves-2027-2030-school-capital-plan", date: "2026-10-19"}
@@ -61,4 +61,4 @@ Every Glacier Ridge home has an encumbrance registered on title requiring the ow
 - Catholic board plans for the area.
 
 ## Market context
-City-wide detached benchmark was $739,400 in September 2026, down about 1% year over year (CREB via The Canadian Press, 2026-10-01). Northeast Calgary detached was $556,600 and west Calgary $993,700. Glacier Ridge starting prices sit below the city-wide benchmark. Source: https://www.ctvnews.ca/calgary/article/calgary-home-sales-decrease-38-in-september-prices-also-down-board/
+City-wide detached benchmark was $739,400 in September 2026, down about 1% year over year (CREB via The Canadian Press, 2026-10-01). Northeast Calgary detached was $556,600 and west Calgary $993,700. Glacier Ridge starting prices span both sides of that benchmark: about $546,000 (Jayman Brooklyn 20, GST included) and $725,000 (Cedarglen Windsor) up to about $808,500 (Jayman Holly 24, GST included). Starting prices are not sale prices. Source: https://www.ctvnews.ca/calgary/article/calgary-home-sales-decrease-38-in-september-prices-also-down-board/

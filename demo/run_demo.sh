@@ -9,7 +9,7 @@ head -20 examples/calgary/glacier-ridge.md
 pause 3
 
 echo; echo "== 2. Affordability with the Canadian rules, shown with every input =="
-python3 scripts/affordability.py --price 665000 --down 66500 --rate 4.0 --years 25 \
+python3 scripts/affordability.py --price 725000 --down 72500 --rate 4.0 --years 25 \
   --insured --first-time --stress-auto --monthly-income 12500 --annual-fees 498.02
 pause 3
 

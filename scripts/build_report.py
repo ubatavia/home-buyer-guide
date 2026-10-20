@@ -100,18 +100,21 @@ def build(folder, out):
                         f"<td class='note'>{html.escape(p['price_note'])}</td></tr>")
         fp_html = ("<h2>Floor plans by size</h2><div class='wrap'><table><tr><th>Builder</th><th>Plan</th><th>Size</th><th>Rooms</th>"
                    "<th>Garage</th><th>Price signal</th></tr>" + rows_fp + "</table></div>"
-                   "<p class='note'>Prices are not like for like: different communities, GST treatment and dates. See floorplan-comparison.md.</p>")
+                   "<p class='note'>Jayman states prices before GST and Cedarglen includes it. The affordability table adds 5% GST to Jayman prices for a like-for-like view. These are starting prices, not quotes.</p>")
     rules = load_rules()
     s = rules["stress_test"]
     rate = 4.0
     stress = max(rate + s["buffer_pct"], s["floor_pct"])
     rows = ""
-    for label, price in [("Paired, low $500Ks (assumed 520,000)", 520000),
-                         ("Laned, from $660Ks (assumed 665,000)", 665000),
-                         ("Front-drive, low $700Ks (assumed 725,000)", 725000)]:
-        r = analyse(price, max(price * 0.10, 0), rate, 25, stress, 12500, insured=True, first_time=True, rules=rules)
-        rows += (f"<tr><td>{html.escape(label)}</td><td>{money(r['mortgage'])}</td>"
-                 f"<td>{money(r['monthly_payment'])}</td><td>{money(r['stress_payment'])}</td>"
+    fp_data = json.load(open(fp_path)) if os.path.exists(fp_path) else {"plans": [], "gst_rate": 0.05}
+    for p in fp_data["plans"]:
+        if p.get("price_stated") is None:
+            continue
+        price = p["price_stated"] * (1 if p["gst_included"] else 1 + fp_data["gst_rate"])
+        sq = p["sqft"][0]
+        r = analyse(price, price * 0.10, rate, 25, stress, 12500, insured=True, first_time=True, rules=rules)
+        rows += (f"<tr><td>{html.escape(p['builder'])} {html.escape(p['name'])}</td><td>{money(price)}</td><td>${price / sq:,.0f}</td>"
+                 f"<td>{money(r['mortgage'])}</td><td>{money(r['monthly_payment'])}</td><td>{money(r['stress_payment'])}</td>"
                  f"<td>{r['stress_to_income_pct']:.1f}%</td></tr>")
 
     page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
@@ -123,7 +126,7 @@ def build(folder, out):
 <h2>Builders</h2><div class="grid">{''.join(card(f) for f in blds)}</div>
 {fp_html}
 <h2>Affordability (illustrative household)</h2>
-<div class="wrap"><table><tr><th>Option</th><th>Mortgage incl. insurance</th><th>Monthly at 4.0%</th>
+<div class="wrap"><table><tr><th>Option (price incl. GST)</th><th>Price</th><th>$ per sq ft</th><th>Mortgage incl. insurance</th><th>Monthly at 4.0%</th>
 <th>At qualifying rate {stress:.2f}%</th><th>Stressed payment / income</th></tr>{rows}</table></div>
 <p class="note">Assumes 10% down, 25-year amortization, 4.0% contract rate, $150,000 household income. All assumed, none real.
 Excludes property tax, utilities, legal fees and GST rebates. Rules snapshot: {rules['last_checked']}, secondary sources, re-verify.</p>

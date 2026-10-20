@@ -6,7 +6,7 @@ tiers, land title fees) come from data/rules-ca-ab.json, which is dated and
 sourced and must be re-verified before you rely on it.
 
 Example:
-    python3 scripts/affordability.py --price 665000 --down 66500 --rate 4.0 \
+    python3 scripts/affordability.py --price 725000 --down 72500 --rate 4.0 \
         --years 25 --insured --first-time --stress-auto --monthly-income 12500
 """
 import argparse

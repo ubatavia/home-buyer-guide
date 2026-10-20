@@ -49,12 +49,12 @@ flowchart LR
 open demo/report.html       # macOS; the script opens it for you
 ```
 
-It runs a real Calgary example (Glacier Ridge, two builders) built from public sources. The household in the scenario is fictional. Every price carries a source and date, and anything unverified is marked `low` confidence or `unknown`. See `demo/DEMO-SCRIPT.md` for a recording script.
+It runs a real Calgary example (Glacier Ridge, two builders, four same-size floor plans) built from public sources. The household in the scenario is fictional. Every price carries a source and date, and anything unverified is marked `low` confidence or `unknown`. See `demo/DEMO-SCRIPT.md` for a recording script.
 
 Calculator on its own:
 
 ```bash
-python3 scripts/affordability.py --price 665000 --down 66500 --rate 4.0 --years 25 \
+python3 scripts/affordability.py --price 725000 --down 72500 --rate 4.0 --years 25 \
   --insured --first-time --stress-auto --monthly-income 12500
 ```
 

@@ -1,26 +1,27 @@
-# Scoring matrix (illustrative weights)
+# Scoring matrix: Jayman Karma 24 vs Cedarglen Windsor (illustrative weights)
 
-Weights are placeholders. Set your own in `docs/framework.md`. Scores come only from what the research files support. Nothing here is a recommendation.
+The two closest plans by size (2,261 vs 2,238 sq ft; both 3 bed, 2.5 bath, front attached). Weights are placeholders; set your own in `docs/framework.md`. Scores come only from what the research files support. Nothing here is a recommendation.
 
-| Criterion | Weight | Jayman BUILT, Brooklyn 20 (laned) | Cedarglen, Carbon (front drive) |
+| Criterion | Weight | Jayman Karma 24 | Cedarglen Windsor |
 |---|---|---|---|
-| All-in price (computed: 5 at or below $720K target, 1 at $825K ceiling) | 35% | 5 (assumed $665K) | 5 (assumed $725K is at the target line, so 5 by rule; tentative) |
+| All-in price (computed: 5 at or below a $720K target, 1 at a $825K ceiling, linear between; GST included) | 35% | 2.4 (about $787,500) | 4.8 ($725,000) |
 | Single-income affordability (from financial-analyst) | 25% | needs analysis | needs analysis |
 | Build quality | 20% | 3 (mixed evidence, tentative) | 3 (mixed evidence, tentative) |
-| Community fee (note, not scored) | n/a | $498.02/yr, same community for both | $498.02/yr |
 | Community feel | 10% | insufficient data | insufficient data |
 | Deposit structure | 10% | insufficient data | insufficient data |
 
-**Reference figures (not scored):**
+**Not scored, for reference**
 
-| | Jayman Brooklyn 20 | Cedarglen Carbon |
+| | Karma 24 | Windsor |
 |---|---|---|
-| Size | about 1,450 sq ft, 3 bed, 2.5 bath | 2,032 to 2,260 sq ft, 3 to 5 bed, 2.5 to 3 bath |
-| Garage | detached rear double | front attached |
-| Assumed price | $665,000 | $725,000 |
-| Rough price per sq ft | about $460 | about $357 (Carbon price not found; illustration only) |
-| Data confidence | medium | low |
+| Size | 2,261 sq ft | 2,238 sq ft |
+| Starting price incl. GST | about $787,500 | $725,000 |
+| $ per sq ft | about $348 | about $324 |
+| Monthly payment (illustrative: 10% down, 25 yr, 4.0%) | about $3,844 | about $3,539 |
+| Stressed payment / gross income ($150K household, assumed) | 37.4% | 34.4% |
+| Residents' Association fee | $498.02/yr | $498.02/yr |
+| Data confidence | medium (builder page read directly) | medium (price supplied from builder page) |
 
-**Like-for-like pairing:** see `floorplan-comparison.md`. The Jayman Holly 24 (2,436 sq ft) lines up most closely with the Cedarglen Windsor (2,238 sq ft) and the Carbon (2,032 to 2,260 sq ft), not with the smaller Brooklyn. This matrix uses the Brooklyn and Carbon as originally scoped; swap in the Holly and Windsor when you have Glacier Ridge quotes.
+**Reading this matrix:** the price row is the only one with real separation, and it depends on how each builder defines "starting from" and on GST. Jayman states prices before GST; Cedarglen includes it. If a first-time buyer qualifies for the GST rebate, the gap narrows (see `floorplan-comparison.md`). Build quality scores rest on small review samples, so they are tentative. Cells that cannot be scored say so on purpose.
 
-**Reading this matrix:** the two options are not like for like. The Carbon is roughly 40 to 55% bigger and front-drive, the Brooklyn is a smaller laned home. Price alone does not separate them; size, garage type, school timing and warranty service do, and those need your priorities. Both build-quality scores rest on small review samples, so they are tentative. Cells that cannot be scored say so on purpose.
+The Holly 24 (2,436 sq ft, about $808,500 incl. GST) and Carbon (2,032 to 2,260 sq ft, no Glacier Ridge price found) are covered in `floorplan-comparison.md`.
