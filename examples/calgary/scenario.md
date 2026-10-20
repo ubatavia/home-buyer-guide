@@ -4,7 +4,7 @@
 
 | Input | Value | Basis |
 |---|---|---|
-| Purchase price | $665,000 | Jayman "from the $660,000s" Glacier Ridge laned home, e.g. the Brooklyn 20 (about 1,450 sq ft). Assumption within the band |
+| Purchase price | $665,000 | Jayman "from the $660,000s" Glacier Ridge laned home, e.g. the Brooklyn 20 (1,444 sq ft). Assumption within the band |
 | Down payment | $66,500 (10%) | Assumed. Minimum for this price is $41,500 |
 | Contract rate | 4.0% | Assumption. Sources put 5-year fixed near 4% in spring 2026; get a live quote |
 | Amortization | 25 years | Assumed |
@@ -14,8 +14,10 @@ Run it:
 
 ```bash
 python3 scripts/affordability.py --price 665000 --down 66500 --rate 4.0 --years 25 \
-  --insured --first-time --stress-auto --monthly-income 12500
+  --insured --first-time --stress-auto --monthly-income 12500 --annual-fees 498.02
 ```
+
+The `--annual-fees` figure is the 2026 Glacier Ridge Residents' Association fee for a single-family home ($498.02 per year including GST, about $41.50 a month). It is mandatory and registered on title.
 
 Result at the time of writing: mortgage payment about $3,246/month, or about $3,948/month at the 6.00% qualifying rate (the greater of contract rate + 2% or 5.25%), which is 31.6% of gross monthly income before property tax and utilities. A lender will apply its own debt-service limits, so this is a screening number only.
 

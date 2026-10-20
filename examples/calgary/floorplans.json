@@ -1,0 +1,22 @@
+{
+  "_note": "Floor plan specs as published by the builders on the date below. Prices are NOT like for like (see floorplan-comparison.md).",
+  "retrieved": "2026-10-19",
+  "plans": [
+    {"builder": "Jayman BUILT", "name": "Brooklyn 20", "sqft": [1444, 1444], "beds": "3", "baths": "2.5", "garage": "laned, detached rear (optional)",
+     "price_note": "model page: from the $490,000s pre-GST (lowest across communities); Glacier Ridge page: from the $660,000s incl. GST",
+     "price_per_sqft_assumed": null,
+     "source": "https://www.jayman.com/calgary/all-homes/home-models/brooklyn-20-m/", "confidence": "high (builder page read directly)"},
+    {"builder": "Jayman BUILT", "name": "Holly 24", "sqft": [2436, 2436], "beds": "3", "baths": "2.5", "garage": "2-car (type not stated; likely front-attached, inferred)",
+     "price_note": "model page: from the $625,000s pre-GST, home and lot, across Calgary communities incl. Glacier Ridge; Glacier Ridge price not found",
+     "price_per_sqft_assumed": 257,
+     "source": "https://www.jayman.com/calgary/all-homes/home-models/holly-24-m/", "confidence": "high for specs, low for Glacier Ridge price"},
+    {"builder": "Cedarglen Homes", "name": "Windsor SSY 24", "sqft": [2238, 2238], "beds": "3", "baths": "2.5", "garage": "front attached",
+     "price_note": "Seton quick-possession listing at $749,900 incl. lot and GST; availability in Glacier Ridge not confirmed",
+     "price_per_sqft_assumed": 335,
+     "source": "https://www.cedarglenhomes.com/quick-possession/19848-42-street-se/", "confidence": "medium (builder listing via search snippet; page blocked)"},
+    {"builder": "Cedarglen Homes", "name": "Carbon", "sqft": [2032, 2260], "beds": "3 to 5", "baths": "2.5 to 3", "garage": "front attached",
+     "price_note": "Glacier Ridge front-drive homes 'starting in the low $700,000s' (model price not found)",
+     "price_per_sqft_assumed": 357,
+     "source": "https://www.cedarglenhomes.com/model/carbon/", "confidence": "medium (builder page via search snippet; page blocked)"}
+  ]
+}

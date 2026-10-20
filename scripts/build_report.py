@@ -79,13 +79,28 @@ def build(folder, out):
                      ("Build quality", f.get("build_quality_reputation", "unknown"))]
         else:
             rows += [("Builders", ", ".join(f.get("builders_present") or []) or "unknown"),
-                     ("Commute", f"{f['commute_minutes']} min (builder claim)" if f.get("commute_minutes") else "unknown")]
+                     ("Commute", f"{f['commute_minutes']} min (builder claim)" if f.get("commute_minutes") else "unknown"),
+                     ("Residents' Association fee", f"${f['community_fee_annual']:,.2f}/yr" if f.get("community_fee_annual") else "unknown")]
         body = "".join(f'<div class="k">{html.escape(k)}</div><div class="v">{html.escape(str(v))}</div>' for k, v in rows)
         n = len(f.get("sources", []))
         return (f'<div class="card"><h3>{html.escape(f["name"])}</h3>'
                 f'<span class="badge {conf}">data confidence: {conf}</span>{body}'
                 f'<div class="note">{n} sources &middot; updated {html.escape(str(f.get("last_updated")))}</div></div>')
 
+    fp_path = os.path.join(folder, "floorplans.json")
+    fp_html = ""
+    if os.path.exists(fp_path):
+        fp = json.load(open(fp_path))
+        rows_fp = ""
+        for p in fp["plans"]:
+            lo, hi = p["sqft"]
+            size = f"{lo:,}" if lo == hi else f"{lo:,} to {hi:,}"
+            rows_fp += (f"<tr><td>{html.escape(p['builder'])}</td><td><b>{html.escape(p['name'])}</b></td><td>{size} sq ft</td>"
+                        f"<td>{html.escape(p['beds'])} bed / {html.escape(p['baths'])} bath</td><td>{html.escape(p['garage'])}</td>"
+                        f"<td class='note'>{html.escape(p['price_note'])}</td></tr>")
+        fp_html = ("<h2>Floor plans by size</h2><div class='wrap'><table><tr><th>Builder</th><th>Plan</th><th>Size</th><th>Rooms</th>"
+                   "<th>Garage</th><th>Price signal</th></tr>" + rows_fp + "</table></div>"
+                   "<p class='note'>Prices are not like for like: different communities, GST treatment and dates. See floorplan-comparison.md.</p>")
     rules = load_rules()
     s = rules["stress_test"]
     rate = 4.0
@@ -106,13 +121,14 @@ def build(folder, out):
 <p class="sub">Generated from research files by the Home Buyer Guide agents. Public data, retrieved 2026-10-19.</p>
 <h2>Community</h2><div class="grid">{''.join(card(f) for f in comms)}</div>
 <h2>Builders</h2><div class="grid">{''.join(card(f) for f in blds)}</div>
+{fp_html}
 <h2>Affordability (illustrative household)</h2>
 <div class="wrap"><table><tr><th>Option</th><th>Mortgage incl. insurance</th><th>Monthly at 4.0%</th>
 <th>At qualifying rate {stress:.2f}%</th><th>Stressed payment / income</th></tr>{rows}</table></div>
 <p class="note">Assumes 10% down, 25-year amortization, 4.0% contract rate, $150,000 household income. All assumed, none real.
 Excludes property tax, utilities, legal fees and GST rebates. Rules snapshot: {rules['last_checked']}, secondary sources, re-verify.</p>
 <h2>What this report does not know</h2>
-<p class="note">Upgrade pricing, deposit schedules, the Residents' Association fee, transit, Catholic school plans and superintendent-level quality
+<p class="note">Upgrade pricing, deposit schedules, transit, Catholic school plans and superintendent-level quality
 are unknown, so the scorer leaves them blank instead of guessing. Review evidence is a small sample. Not financial advice.</p>
 </main></body></html>"""
     with open(out, "w", encoding="utf-8") as fh:

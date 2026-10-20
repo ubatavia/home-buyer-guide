@@ -68,7 +68,8 @@ def land_title_fee(value: float, rules: dict) -> float:
 
 
 def analyse(price, down, rate, years, stress_rate=None, monthly_income=None,
-            compounding="semi-annual", insured=False, first_time=False, rules=None):
+            compounding="semi-annual", insured=False, first_time=False, rules=None,
+            annual_fees=0.0):
     rules = rules or load_rules()
     if down >= price:
         raise ValueError("down payment must be less than price")
@@ -93,6 +94,8 @@ def analyse(price, down, rate, years, stress_rate=None, monthly_income=None,
     out["mortgage"] = mortgage
     out["monthly_payment"] = monthly_payment(mortgage, rate, years, compounding)
     out["total_interest"] = out["monthly_payment"] * years * 12 - mortgage
+    out["annual_fees"] = annual_fees
+    out["monthly_with_fees"] = out["monthly_payment"] + annual_fees / 12
     out["title_fees"] = land_title_fee(price, rules) + land_title_fee(mortgage, rules)
 
     if stress_rate is not None:
@@ -122,6 +125,8 @@ def render(r: dict) -> str:
         f"  Monthly payment:     ${r['monthly_payment']:>12,.2f}",
         f"  Total interest:      ${r['total_interest']:>12,.0f}",
     ]
+    if r.get("annual_fees"):
+        L.append(f"  + Association fee:   ${r['annual_fees']:>12,.2f}/yr -> ${r['monthly_with_fees']:,.2f}/mo together")
     if "stress_payment" in r:
         L.append(f"  Stress payment @ {r['stress_rate']:.2f}%: ${r['stress_payment']:,.2f}/mo")
     else:
@@ -152,6 +157,7 @@ def main(argv=None):
     p.add_argument("--stress-rate", type=float, help="qualifying rate, percent")
     p.add_argument("--stress-auto", action="store_true",
                    help="derive the qualifying rate from data/rules-ca-ab.json")
+    p.add_argument("--annual-fees", type=float, default=0.0, help="community/residents' association fee per year")
     p.add_argument("--monthly-income", type=float, help="gross monthly household income")
     a = p.parse_args(argv)
     try:
@@ -161,7 +167,7 @@ def main(argv=None):
             s = rules["stress_test"]
             stress = max(a.rate + s["buffer_pct"], s["floor_pct"])
         print(render(analyse(a.price, a.down, a.rate, a.years, stress, a.monthly_income,
-                             a.compounding, a.insured, a.first_time, rules)))
+                             a.compounding, a.insured, a.first_time, rules, a.annual_fees)))
     except ValueError as e:
         print(f"error: {e}", file=sys.stderr)
         return 1

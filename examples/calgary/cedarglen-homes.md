@@ -5,7 +5,7 @@ slug: cedarglen-homes
 last_updated: 2026-10-19
 price_starting: 520000
 price_range: [520000, 725000]
-matching_floorplans: ["Carbon (front drive, 2,032 to 2,260 sq ft, 3 to 5 bed, 2.5 to 3 bath)"]
+matching_floorplans: ["Windsor SSY 24 (2,238 sq ft, 3 bed, 2.5 bath, front attached; Glacier Ridge availability unconfirmed)", "Carbon (front drive, 2,032 to 2,260 sq ft, 3 to 5 bed, 2.5 to 3 bath)"]
 sqft_range_offered: [2032, 2525]
 deposit_structure: ""
 build_timeline_months: null
@@ -17,6 +17,7 @@ social_signal_summary: "Praise for sales process and finishes on the builder's o
 data_confidence: low
 sources:
   - {field: "price_starting", url: "https://www.cedarglenhomes.com/find-your-home/communities/glacier-ridge", date: "2026-10-19"}
+  - {field: "matching_floorplans", url: "https://www.cedarglenhomes.com/quick-possession/19848-42-street-se/", date: "2026-10-19"}
   - {field: "matching_floorplans", url: "https://www.cedarglenhomes.com/model/carbon/", date: "2026-10-19"}
   - {field: "sqft_range_offered", url: "https://www.cedarglenhomes.com/quick-possession/185-edith-road-nw/", date: "2026-10-19"}
   - {field: "build_quality_reputation", url: "https://www.homestars.com/profile/2622444-cedarglen-homes/reviews", date: "2026-10-19"}
@@ -29,6 +30,8 @@ Calgary builder (the Trico Homes brand is described as its sister brand). Its Gl
 Price bands only ("low $500,000s", "low $700,000s"). The numbers in the frontmatter, 520,000 and 725,000, are assumptions made for this example, not quoted prices. At an assumed $725,000 and 2,032 sq ft (the Carbon's low end), price per sq ft would be roughly $357, but the Carbon's own price was not found, so this is a rough illustration only.
 
 ## Matching Floorplans
+**Windsor SSY 24**, per a Cedarglen quick-possession listing in Seton: 2,238 sq ft, 3 bedrooms, 2.5 bathrooms, main floor 1,003 sq ft and upper floor 1,235 sq ft, front attached garage, open-to-above main living area, central upper bonus room, rear deck. Listed at $749,900 including lot and GST (Seton, possession December 2026). Whether the Windsor is built in Glacier Ridge was not confirmed.
+
 **Carbon (front drive garage)**, per the builder's model page: 2,032 to 2,260 sq ft, 3 to 5 bedrooms, 2.5 to 3 bathrooms, standard main floor 870 sq ft and upper floor 1,161 sq ft. A Glacier Ridge quick-possession home at 185 Edith Road NW is listed at 2,276 sq ft, 3 bedrooms, 2.5 bathrooms with a double front garage (model not named). A resale Carbon on Marmot Passage NW is described at 2,525 sq ft, 4 bedrooms (a third-party listing).
 
 Floor plan drawings: https://www.cedarglenhomes.com/model/carbon/
@@ -46,6 +49,7 @@ No superintendent or trade-specific evidence found (`unknown`).
 - Pattern across sources: praise for sales and the build process, more complaints about post-move-in service. The sample is small. No Reddit threads surfaced.
 
 ## Open Questions
-- Carbon's actual starting price and what the front-drive "low $700,000s" includes.
+- Carbon's and Windsor's Glacier Ridge prices, and what the front-drive "low $700,000s" includes.
+- Whether the Windsor is offered in Glacier Ridge.
 - Whether the anniversary promotion applies.
 - Deposit schedule and possession timeline.

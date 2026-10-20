@@ -59,6 +59,10 @@ class AnalyseTests(unittest.TestCase):
         r = analyse(700_000, 150_000, 4.0, 25, stress_rate=6.0, insured=True, rules=RULES)
         self.assertGreater(r["stress_payment"], r["monthly_payment"])
 
+    def test_association_fee_added_monthly(self):
+        r = analyse(665_000, 66_500, 4.0, 25, insured=True, rules=RULES, annual_fees=498.02)
+        self.assertAlmostEqual(r["monthly_with_fees"], r["monthly_payment"] + 498.02 / 12)
+
     def test_down_payment_too_large(self):
         with self.assertRaises(ValueError):
             analyse(500_000, 500_000, 4.0, 25, rules=RULES)
