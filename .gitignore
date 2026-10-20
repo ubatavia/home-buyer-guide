@@ -1,0 +1,17 @@
+# Private data: never commit
+PRIVATE-FINANCES.md
+PROJECT-GUIDE.md
+CLAUDE.local.md
+fieldwork/*
+!fieldwork/.gitkeep
+builders/*
+!builders/.gitkeep
+communities/*
+!communities/.gitkeep
+.env
+.env.*
+*credentials*.json
+*token*.json
+.DS_Store
+.claude/agent-memory-local/
+.claude/settings.local.json
