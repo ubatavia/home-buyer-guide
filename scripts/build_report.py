@@ -112,8 +112,8 @@ def build(folder, out):
 <p class="note">Assumes 10% down, 25-year amortization, 4.0% contract rate, $150,000 household income. All assumed, none real.
 Excludes property tax, utilities, legal fees and GST rebates. Rules snapshot: {rules['last_checked']}, secondary sources, re-verify.</p>
 <h2>What this report does not know</h2>
-<p class="note">Builder reputation, upgrade pricing, deposits, community fees and zoned schools are unknown, so the scorer leaves them blank
-instead of guessing. Not financial advice.</p>
+<p class="note">Upgrade pricing, deposit schedules, the Residents' Association fee, transit, Catholic school plans and superintendent-level quality
+are unknown, so the scorer leaves them blank instead of guessing. Review evidence is a small sample. Not financial advice.</p>
 </main></body></html>"""
     with open(out, "w", encoding="utf-8") as fh:
         fh.write(page)
